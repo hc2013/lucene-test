@@ -12,9 +12,11 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Util {
-  private static final String TEST_DATA_PATH = "/home/hanchun/WorkProjects/lucene-test/data";
-  private static final String String_FIELD_NAME = "c_string";
+public class WriteUtil {
+
+  public static final String TEST_DATA_PATH = "/home/hanchun/WorkProjects/lucene-test/data1";
+  public static final String String_FIELD_NAME = "c_string";
+  public static final int DEFAULT_STRING_LENGTH = 10;
 
   public static void prepareDocs() throws IOException {
     Path indexPath = Paths.get(TEST_DATA_PATH);
@@ -46,6 +48,5 @@ public class Util {
     indexWriter.close();
     indexDirectory.close();
   }
-
 
 }

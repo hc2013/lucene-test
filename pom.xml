@@ -21,7 +21,7 @@
     </build>
 
     <properties>
-        <lucene.version>6.5.1-transwarp-6.1.0</lucene.version>
+        <lucene.version>6.5.1-transwarp-7.0.0</lucene.version>
         <apache.common.lang.version>3.8</apache.common.lang.version>
     </properties>
 
@@ -36,5 +36,11 @@
             <artifactId>commons-lang3</artifactId>
             <version>${apache.common.lang.version}</version>
         </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+
     </dependencies>
 </project>

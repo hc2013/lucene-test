@@ -1,7 +1,12 @@
 package com.hc.lucene.util;
 
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class FileUtil {
   
@@ -24,6 +29,19 @@ public class FileUtil {
     else if (file.exists()) {
       file.delete();
       file.createNewFile();
+    }
+  }
+
+  public static void delteFile(String filePath) throws IOException {
+    File file = new File(filePath);
+    if (!file.exists()) {
+      throw new IOException(filePath + "doesn't exist! Cannot be deleted");
+    }
+    if (file.isFile()) {
+      file.delete();
+    }
+    else {
+      throw new IOException(filePath + "is a diretory, cannot delete as a file");
     }
   }
 
@@ -55,5 +73,16 @@ public class FileUtil {
       recursiveCreateDir(dir.getParentFile());
       dir.mkdir();
     }
+  }
+
+  public static void copyDirectory(String source, String dest) throws IOException {
+    File sourceLocation= new File(source);
+    File targetLocation = new File(dest);
+
+    FileUtils.copyDirectory(sourceLocation, targetLocation);
+  }
+
+  public static void deleteDirectory(String dest) throws IOException {
+    FileUtils.deleteDirectory(new File(dest));
   }
 }
